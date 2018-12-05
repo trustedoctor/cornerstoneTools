@@ -15,7 +15,7 @@ const { state, setters } = store.modules.brush;
  */
 class BaseBrushTool extends BaseTool {
   constructor(...args) {
-    super(args);
+    super(...args);
 
     this.hasCursor = true;
     this.referencedToolData = 'brush';

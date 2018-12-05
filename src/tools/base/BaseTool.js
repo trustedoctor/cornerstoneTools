@@ -18,14 +18,14 @@ import lodash from 'lodash';
 class BaseTool {
   /**
    * Constructor description
-   * @param {defaultProps} [defaultProps={}]
-   * @param {props} [props={}]
+   * @param {defaultProps} [defaultProps={}] Tools Default properties
+   * @param {props} [props={}] Tool properties set on instantiation of a tool
    */
-  constructor(defaultProps, props) {
+  constructor(props, defaultProps) {
     /**
      * Merge default props with custom props
      */
-    const mergedProps = lodash.merge(defaultProps, props);
+    props = lodash.merge({}, defaultProps, props);
 
     const {
       name,
@@ -34,7 +34,7 @@ class BaseTool {
       configuration,
       supportedInteractionTypes,
       mixins,
-    } = mergedProps;
+    } = props;
     /**
      * A unique, identifying tool name
      * @type {String}
