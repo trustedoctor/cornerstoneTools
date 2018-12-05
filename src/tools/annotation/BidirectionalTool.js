@@ -21,32 +21,21 @@ const emptyLocationCallback = (measurementData, eventData, doneCallback) =>
  */
 
 export default class BidirectionalTool extends BaseAnnotationTool {
-  constructor(configuration = {}) {
-    const textBoxConfig = '';
-    const shadowConfig = '';
-
-    const defaultConfig = {
+  constructor(props) {
+    const defaultProps = {
       name: 'Bidirectional',
       supportedInteractionTypes: ['Mouse', 'Touch'],
       configuration: {
         changeMeasurementLocationCallback: emptyLocationCallback,
         getMeasurementLocationCallback: emptyLocationCallback,
-        textBox: textBoxConfig,
-        shadow: shadowConfig,
+        textBox: '',
+        shadow: '',
         drawHandlesOnHover: true,
         additionalData: [],
       },
     };
 
-    const mergedConfiguration = Object.assign(
-      defaultConfig.configuration,
-      configuration
-    );
-    const initialConfiguration = Object.assign(defaultConfig, {
-      configuration: mergedConfiguration,
-    });
-
-    super(initialConfiguration);
+    super(defaultProps, props);
 
     this.createNewMeasurement = createNewMeasurement.bind(this);
     this.pointNearTool = pointNearTool.bind(this);

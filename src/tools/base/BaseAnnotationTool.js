@@ -13,24 +13,9 @@ import {
  * @extends Tools.Base.BaseTool
  */
 class BaseAnnotationTool extends BaseTool {
-  constructor({
-    name,
-    strategies,
-    defaultStrategy,
-    configuration,
-    supportedInteractionTypes,
-    mixins,
-  }) {
-    super({
-      name,
-      strategies,
-      defaultStrategy,
-      configuration,
-      supportedInteractionTypes,
-      mixins,
-    });
+  constructor(...args) {
+    super(args);
   }
-
   // ===================================================================
   // Abstract Methods - Must be implemented.
   // ===================================================================
