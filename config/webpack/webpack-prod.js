@@ -1,18 +1,18 @@
-const merge = require('./merge');
+const merge = require('webpack-merge');
 const baseConfig = require('./webpack-base');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const prodConfig = {
   output: {
-    filename: '[name].min.js'
+    filename: '[name].min.js',
   },
-  mode: "production",
+  mode: 'production',
   optimization: {
     minimizer: [
       new UglifyJSPlugin({
-        sourceMap: true
-      })
-    ]
+        sourceMap: true,
+      }),
+    ],
   },
 };
 
