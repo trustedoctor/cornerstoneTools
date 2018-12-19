@@ -1,5 +1,5 @@
 import mixins from './../../mixins/index.js';
-import merge from 'lodash.merge';
+import deepmerge from './../../util/deepmerge.js';
 
 /**
  * @typedef ToolConfiguration
@@ -25,7 +25,7 @@ class BaseTool {
     /**
      * Merge default props with custom props
      */
-    props = merge({}, defaultProps, props);
+    props = deepmerge(defaultProps, props);
 
     const {
       name,
